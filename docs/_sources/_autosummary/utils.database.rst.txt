@@ -1,0 +1,20 @@
+﻿utils.database
+==============
+
+.. automodule:: utils.database
+
+   
+   .. rubric:: Module Attributes
+
+   .. autosummary::
+   
+      SECTION_KEYS
+      NAN_EQUIVALENTS
+      DATABASE
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+   
+      PerovskiteData
+   

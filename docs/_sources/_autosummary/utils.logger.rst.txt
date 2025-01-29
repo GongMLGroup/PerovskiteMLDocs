@@ -1,0 +1,12 @@
+﻿utils.logger
+============
+
+.. automodule:: utils.logger
+
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      setup_logger
+   

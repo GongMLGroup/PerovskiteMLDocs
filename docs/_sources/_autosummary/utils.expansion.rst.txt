@@ -1,0 +1,22 @@
+﻿utils.expansion
+===============
+
+.. automodule:: utils.expansion
+
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      expand_data
+      expand_dataset
+      expand_sort
+      extract_features
+      feature_counts
+      feature_tree
+      filter_children
+      generate_children
+      generate_name
+      leaf_matrix
+      percent_index
+   

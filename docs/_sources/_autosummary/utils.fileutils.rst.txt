@@ -1,0 +1,20 @@
+﻿utils.fileutils
+===============
+
+.. automodule:: utils.fileutils
+
+   
+   .. rubric:: Module Attributes
+
+   .. autosummary::
+   
+      PROJECT_DIR
+      DATA_DIR
+      EXPAND_DIR
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      hash_params
+   

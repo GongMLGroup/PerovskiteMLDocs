@@ -1,0 +1,25 @@
+﻿utils.reduction
+===============
+
+.. automodule:: utils.reduction
+
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      collect_features
+      find_sparsity
+      get_valid_patterns
+      has_concentrations
+      is_pattern
+      is_valid_pattern
+      matches_regex
+      partition_by_pattern
+      passes_sparsity
+      prune_by_sparsity
+      reduce_data
+      remove_features
+      section_features
+      sort_by_sparsity
+   

@@ -1,0 +1,364 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>utils.database &mdash; PerovskiteML  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="utils.dataset" href="utils.dataset.html" />
+    <link rel="prev" title="utils" href="../utils.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            PerovskiteML
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Reference:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../utils.html">utils</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../utils.html#utils.display_scores"><code class="docutils literal notranslate"><span class="pre">display_scores()</span></code></a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">utils.database</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#utils.database.DATABASE"><code class="docutils literal notranslate"><span class="pre">DATABASE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#utils.database.NAN_EQUIVALENTS"><code class="docutils literal notranslate"><span class="pre">NAN_EQUIVALENTS</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#utils.database.PerovskiteData"><code class="docutils literal notranslate"><span class="pre">PerovskiteData</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#utils.database.PerovskiteData.data"><code class="docutils literal notranslate"><span class="pre">PerovskiteData.data</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#utils.database.PerovskiteData.ref"><code class="docutils literal notranslate"><span class="pre">PerovskiteData.ref</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#utils.database.PerovskiteData.database_file"><code class="docutils literal notranslate"><span class="pre">PerovskiteData.database_file</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#utils.database.PerovskiteData.ref_file"><code class="docutils literal notranslate"><span class="pre">PerovskiteData.ref_file</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#utils.database.PerovskiteData.nan_equivalents"><code class="docutils literal notranslate"><span class="pre">PerovskiteData.nan_equivalents</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#utils.database.PerovskiteData.section_keys"><code class="docutils literal notranslate"><span class="pre">PerovskiteData.section_keys</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#utils.database.PerovskiteData.X"><code class="docutils literal notranslate"><span class="pre">PerovskiteData.X</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#utils.database.PerovskiteData.y"><code class="docutils literal notranslate"><span class="pre">PerovskiteData.y</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#utils.database.PerovskiteData.get_Xy"><code class="docutils literal notranslate"><span class="pre">PerovskiteData.get_Xy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#utils.database.PerovskiteData.preprocess"><code class="docutils literal notranslate"><span class="pre">PerovskiteData.preprocess()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#utils.database.PerovskiteData.set_Xy"><code class="docutils literal notranslate"><span class="pre">PerovskiteData.set_Xy()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#utils.database.SECTION_KEYS"><code class="docutils literal notranslate"><span class="pre">SECTION_KEYS</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="utils.dataset.html">utils.dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils.expansion.html">utils.expansion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils.fileutils.html">utils.fileutils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils.logger.html">utils.logger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils.preprocess.html">utils.preprocess</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils.reduction.html">utils.reduction</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">PerovskiteML</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../utils.html">utils</a></li>
+      <li class="breadcrumb-item active">utils.database</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_autosummary/utils.database.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-utils.database">
+<span id="utils-database"></span><h1>utils.database<a class="headerlink" href="#module-utils.database" title="Link to this heading"></a></h1>
+<p>Module description.</p>
+<p class="rubric">Module Attributes</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#utils.database.SECTION_KEYS" title="utils.database.SECTION_KEYS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SECTION_KEYS</span></code></a></p></td>
+<td><p>Dictionary of section names and their corresponding shorthand.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#utils.database.NAN_EQUIVALENTS" title="utils.database.NAN_EQUIVALENTS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NAN_EQUIVALENTS</span></code></a></p></td>
+<td><p>Keys are equivalent to <cite>missing</cite> or <cite>nan</cite> values in the dataset.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#utils.database.DATABASE" title="utils.database.DATABASE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DATABASE</span></code></a></p></td>
+<td><p>An instance of the Perovskite Dataset.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Classes</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#utils.database.PerovskiteData" title="utils.database.PerovskiteData"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PerovskiteData</span></code></a>([ref, data, ref_file, ...])</p></td>
+<td><p>Stores the unprocessed perovskite data.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py data">
+<dt class="sig sig-object py" id="utils.database.DATABASE">
+<span class="sig-prename descclassname"><span class="pre">utils.database.</span></span><span class="sig-name descname"><span class="pre">DATABASE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;utils.database.PerovskiteData</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#utils.database.DATABASE" title="Link to this definition"></a></dt>
+<dd><p>An instance of the Perovskite Dataset.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="utils.database.NAN_EQUIVALENTS">
+<span class="sig-prename descclassname"><span class="pre">utils.database.</span></span><span class="sig-name descname"><span class="pre">NAN_EQUIVALENTS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'NAN':</span> <span class="pre">None,</span> <span class="pre">'NAN;</span> <span class="pre">NAN':</span> <span class="pre">None,</span> <span class="pre">'NULL':</span> <span class="pre">None,</span> <span class="pre">'NaN':</span> <span class="pre">None,</span> <span class="pre">'NaN;</span> <span class="pre">NaN':</span> <span class="pre">None,</span> <span class="pre">'Nan':</span> <span class="pre">None,</span> <span class="pre">'Nan;</span> <span class="pre">Nan':</span> <span class="pre">None,</span> <span class="pre">'None':</span> <span class="pre">None,</span> <span class="pre">'Null':</span> <span class="pre">None,</span> <span class="pre">'Unknown':</span> <span class="pre">None,</span> <span class="pre">'nan':</span> <span class="pre">None,</span> <span class="pre">'nan;</span> <span class="pre">nan':</span> <span class="pre">None,</span> <span class="pre">'none':</span> <span class="pre">None,</span> <span class="pre">'null':</span> <span class="pre">None,</span> <span class="pre">'unknown':</span> <span class="pre">None}</span></em><a class="headerlink" href="#utils.database.NAN_EQUIVALENTS" title="Link to this definition"></a></dt>
+<dd><p>Keys are equivalent to <cite>missing</cite> or <cite>nan</cite> values in the dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="utils.database.PerovskiteData">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">utils.database.</span></span><span class="sig-name descname"><span class="pre">PerovskiteData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ref</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">database_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nan_equivalents</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">section_keys</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utils.database.PerovskiteData" title="Link to this definition"></a></dt>
+<dd><p>Stores the unprocessed perovskite data.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="utils.database.PerovskiteData.data">
+<span class="sig-name descname"><span class="pre">data</span></span><a class="headerlink" href="#utils.database.PerovskiteData.data" title="Link to this definition"></a></dt>
+<dd><p>The unprocessed data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dataframe</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="utils.database.PerovskiteData.ref">
+<span class="sig-name descname"><span class="pre">ref</span></span><a class="headerlink" href="#utils.database.PerovskiteData.ref" title="Link to this definition"></a></dt>
+<dd><p>The reference data for features.
+- Field
+- Type
+- Default
+- Unit
+- Pattern
+- Implemented
+- Description
+- Concerns</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dataframe</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="utils.database.PerovskiteData.database_file">
+<span class="sig-name descname"><span class="pre">database_file</span></span><a class="headerlink" href="#utils.database.PerovskiteData.database_file" title="Link to this definition"></a></dt>
+<dd><p>The name of the database file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="utils.database.PerovskiteData.ref_file">
+<span class="sig-name descname"><span class="pre">ref_file</span></span><a class="headerlink" href="#utils.database.PerovskiteData.ref_file" title="Link to this definition"></a></dt>
+<dd><p>The name of the reference data file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="utils.database.PerovskiteData.nan_equivalents">
+<span class="sig-name descname"><span class="pre">nan_equivalents</span></span><a class="headerlink" href="#utils.database.PerovskiteData.nan_equivalents" title="Link to this definition"></a></dt>
+<dd><p>Equivalent values for NaN in the dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="utils.database.PerovskiteData.section_keys">
+<span class="sig-name descname"><span class="pre">section_keys</span></span><a class="headerlink" href="#utils.database.PerovskiteData.section_keys" title="Link to this definition"></a></dt>
+<dd><p>Dictionary of section names and their corresponding shorthand.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="utils.database.PerovskiteData.X">
+<span class="sig-name descname"><span class="pre">X</span></span><a class="headerlink" href="#utils.database.PerovskiteData.X" title="Link to this definition"></a></dt>
+<dd><p>The preprocessed and masked data.
+Stored after preprocess() is called.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dataframe</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="utils.database.PerovskiteData.y">
+<span class="sig-name descname"><span class="pre">y</span></span><a class="headerlink" href="#utils.database.PerovskiteData.y" title="Link to this definition"></a></dt>
+<dd><p>The masked target
+Stored after preprocess() is called.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>series</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ValueError</strong> – If both ref and ref_file are None.</p></li>
+<li><p><strong>ValueError</strong> – If both data and database_file are None.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="utils.database.PerovskiteData.get_Xy">
+<span class="sig-name descname"><span class="pre">get_Xy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utils.database.PerovskiteData.get_Xy" title="Link to this definition"></a></dt>
+<dd><p>Returns a masked version of the data and target series.</p>
+<p>Masks data against the target series excluding NaN target values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>dataframe</em>) – The perovskite data.</p></li>
+<li><p><strong>target</strong> (<em>str</em>) – The name of the target feature.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The masked data.
+series: The masked target.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dataframe</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="utils.database.PerovskiteData.preprocess">
+<span class="sig-name descname"><span class="pre">preprocess</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">depth</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude_sections</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude_cols</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utils.database.PerovskiteData.preprocess" title="Link to this definition"></a></dt>
+<dd><p>Generates a preprocessed version of the dataset.</p>
+<p>If an unseen set of hyperparameters is used to generate the preprocessed dataset, it is saved for future use. Otherwise, the previously generated file is loaded and returned instead.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>target</strong> (<em>str</em>) – Name of the target feature</p></li>
+<li><p><strong>threshold</strong> (<em>float</em>) – Threshold (%) for the feature density.
+Used to remove sparce data.</p></li>
+<li><p><strong>depth</strong> (<em>float</em>) – Threshold (%) for the feature layer density.
+Determines how many feature layers are extracted.</p></li>
+<li><p><strong>exclude_sections</strong> (<em>list</em><em> of </em><em>str</em><em>, </em><em>optional</em>) – List of sections to be excluded.
+Defaults to [].</p></li>
+<li><p><strong>exclude_cols</strong> (<em>list</em><em> of </em><em>str</em><em>, </em><em>optional</em>) – List of columns to be excluded.
+Defaults to [].</p></li>
+<li><p><strong>save</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether to save the preprocessed data.
+Defaults to True.</p></li>
+<li><p><strong>verbosity</strong> (<em>int</em><em>, </em><em>optional</em>) – Verbosity level.
+Defaults to 0.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The preprocessed data.
+series: The target data.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dataframe</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="utils.database.PerovskiteData.set_Xy">
+<span class="sig-name descname"><span class="pre">set_Xy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utils.database.PerovskiteData.set_Xy" title="Link to this definition"></a></dt>
+<dd><p>Calls <cite>getXy(data, target)</cite> and stores the output.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="utils.database.SECTION_KEYS">
+<span class="sig-prename descclassname"><span class="pre">utils.database.</span></span><span class="sig-name descname"><span class="pre">SECTION_KEYS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'Additional</span> <span class="pre">layers':</span> <span class="pre">'Add_lay',</span> <span class="pre">'Back</span> <span class="pre">contact':</span> <span class="pre">'Backcontact',</span> <span class="pre">'Cell</span> <span class="pre">definition':</span> <span class="pre">'Cell',</span> <span class="pre">'Electron</span> <span class="pre">transport</span> <span class="pre">layer':</span> <span class="pre">'ETL',</span> <span class="pre">'Encapsulation':</span> <span class="pre">'Encapsulation',</span> <span class="pre">'Hole</span> <span class="pre">transport</span> <span class="pre">layer':</span> <span class="pre">'HTL',</span> <span class="pre">'JV</span> <span class="pre">data':</span> <span class="pre">'JV',</span> <span class="pre">'Module</span> <span class="pre">definition':</span> <span class="pre">'Module',</span> <span class="pre">'Outdoor</span> <span class="pre">testing':</span> <span class="pre">'Outdoor',</span> <span class="pre">'Perovskite</span> <span class="pre">deposition':</span> <span class="pre">'Perovskite',</span> <span class="pre">'Quantum</span> <span class="pre">efficiency':</span> <span class="pre">'EQE',</span> <span class="pre">'Reference</span> <span class="pre">information':</span> <span class="pre">'Ref',</span> <span class="pre">'Stabilised</span> <span class="pre">efficiency':</span> <span class="pre">'Stabilised',</span> <span class="pre">'Stability':</span> <span class="pre">'Stability',</span> <span class="pre">'Substrate':</span> <span class="pre">'Substrate',</span> <span class="pre">'The</span> <span class="pre">perovskite':</span> <span class="pre">'Perovskite'}</span></em><a class="headerlink" href="#utils.database.SECTION_KEYS" title="Link to this definition"></a></dt>
+<dd><p>Dictionary of section names and their corresponding shorthand.</p>
+<p>The shorhand is used as a prefix for feature names.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../utils.html" class="btn btn-neutral float-left" title="utils" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="utils.dataset.html" class="btn btn-neutral float-right" title="utils.dataset" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Jiawei Gong Group.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

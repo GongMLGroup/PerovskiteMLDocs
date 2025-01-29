@@ -1,0 +1,446 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>utils.expansion &mdash; PerovskiteML  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="utils.fileutils" href="utils.fileutils.html" />
+    <link rel="prev" title="utils.dataset" href="utils.dataset.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            PerovskiteML
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Reference:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../utils.html">utils</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../utils.html#utils.display_scores"><code class="docutils literal notranslate"><span class="pre">display_scores()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils.database.html">utils.database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils.dataset.html">utils.dataset</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">utils.expansion</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#utils.expansion.expand_data"><code class="docutils literal notranslate"><span class="pre">expand_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#utils.expansion.expand_dataset"><code class="docutils literal notranslate"><span class="pre">expand_dataset()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#utils.expansion.expand_sort"><code class="docutils literal notranslate"><span class="pre">expand_sort()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#utils.expansion.extract_features"><code class="docutils literal notranslate"><span class="pre">extract_features()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#utils.expansion.feature_counts"><code class="docutils literal notranslate"><span class="pre">feature_counts()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#utils.expansion.feature_tree"><code class="docutils literal notranslate"><span class="pre">feature_tree()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#utils.expansion.filter_children"><code class="docutils literal notranslate"><span class="pre">filter_children()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#utils.expansion.generate_children"><code class="docutils literal notranslate"><span class="pre">generate_children()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#utils.expansion.generate_name"><code class="docutils literal notranslate"><span class="pre">generate_name()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#utils.expansion.leaf_matrix"><code class="docutils literal notranslate"><span class="pre">leaf_matrix()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#utils.expansion.percent_index"><code class="docutils literal notranslate"><span class="pre">percent_index()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="utils.fileutils.html">utils.fileutils</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils.logger.html">utils.logger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils.preprocess.html">utils.preprocess</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils.reduction.html">utils.reduction</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">PerovskiteML</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../utils.html">utils</a></li>
+      <li class="breadcrumb-item active">utils.expansion</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_autosummary/utils.expansion.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-utils.expansion">
+<span id="utils-expansion"></span><h1>utils.expansion<a class="headerlink" href="#module-utils.expansion" title="Link to this heading"></a></h1>
+<p>This module contains methods to decode layer data from the strings given by certain features.</p>
+<dl class="simple">
+<dt>Many features in the Perovskite Database contain information about the device layers encoded using patterns:</dt><dd><p>Cell_stack_sequence: “SLG | FTO | TiO2-c | TiO2-mp | Perovskite | Spiro-MeOTAD | Au”
+ETL_deposition_synthesis_atmosphere: “Vacuum | Vacuum &gt;&gt; Vacuum”</p>
+</dd>
+</dl>
+<p>The decoding methods are used to expand this layer data into individual features. The <strong>Depth Threshold</strong>, one of the preprocessing hyperparameters, is used to restrict the sparcity of these features.</p>
+<dl>
+<dt>From the Perovskite database reference document:</dt><dd><p>### The vertical bar, i.e. (‘ | ‘)
+If a filed contains data for more than one layer, the data belonging to the different layers is separated by a
+vertical bar with a space on both sides, i.e. (‘ | ‘)
+Layers are sorted left to right with the substrate first, i.e. to the left.</p>
+<p>### The semicolon. i.e. (‘ ; ‘)
+If several materials, solvents, gases, etc. are occurring in one layer or during one reaction step, e.g. A and
+B, are listed in alphabetic order and separated with semicolons, as in (A; B)</p>
+<p>### The double forward angel bracket, i.e. (‘ &gt;&gt; ‘)
+When a layer in a stack is deposited, there may be more than one reaction step involved. If that is the case,
+the information concerning the different reaction steps, e.g. A, and B, are separated by a double forward
+angel bracket with one blank space on both sides, as in (‘A &gt;&gt; B‘)</p>
+</dd>
+</dl>
+<p class="rubric">Functions</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#utils.expansion.expand_data" title="utils.expansion.expand_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">expand_data</span></code></a>(name, data[, percent, verbosity])</p></td>
+<td><p>Expands the encoded data from a column of data.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#utils.expansion.expand_dataset" title="utils.expansion.expand_dataset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">expand_dataset</span></code></a>(data[, features, percent, ...])</p></td>
+<td><p>Expands the encoded data from a dataset.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#utils.expansion.expand_sort" title="utils.expansion.expand_sort"><code class="xref py py-obj docutils literal notranslate"><span class="pre">expand_sort</span></code></a>(data, ref)</p></td>
+<td><p>Expands a dataset and sorts a reference dictionary of the features by sparsity.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#utils.expansion.extract_features" title="utils.expansion.extract_features"><code class="xref py py-obj docutils literal notranslate"><span class="pre">extract_features</span></code></a>(seq[, delim])</p></td>
+<td><p>Converts a sequence of encoded data into a list of features.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#utils.expansion.feature_counts" title="utils.expansion.feature_counts"><code class="xref py py-obj docutils literal notranslate"><span class="pre">feature_counts</span></code></a>(children[, count_none])</p></td>
+<td><p>Finds the maximum layer number for each row of data and sums along the rows.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#utils.expansion.feature_tree" title="utils.expansion.feature_tree"><code class="xref py py-obj docutils literal notranslate"><span class="pre">feature_tree</span></code></a>(name, data[, parent, iter, ...])</p></td>
+<td><p>Generates a tree of features from a column of encoded data.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#utils.expansion.filter_children" title="utils.expansion.filter_children"><code class="xref py py-obj docutils literal notranslate"><span class="pre">filter_children</span></code></a>(children, percent)</p></td>
+<td><p>Filters children within a given percentile.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#utils.expansion.generate_children" title="utils.expansion.generate_children"><code class="xref py py-obj docutils literal notranslate"><span class="pre">generate_children</span></code></a>(data, delim)</p></td>
+<td><p>Generates the child features for a column of data.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#utils.expansion.generate_name" title="utils.expansion.generate_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">generate_name</span></code></a>(leaf[, name])</p></td>
+<td><p>Recursively generates a name for a leaf node.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#utils.expansion.leaf_matrix" title="utils.expansion.leaf_matrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">leaf_matrix</span></code></a>(root)</p></td>
+<td><p>Generates a dataframe of the data from the leaf nodes of a tree.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#utils.expansion.percent_index" title="utils.expansion.percent_index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">percent_index</span></code></a>(arr[, percent])</p></td>
+<td><p>Finds the index where a given percent of data falls within.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py function">
+<dt class="sig sig-object py" id="utils.expansion.expand_data">
+<span class="sig-prename descclassname"><span class="pre">utils.expansion.</span></span><span class="sig-name descname"><span class="pre">expand_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">percent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utils.expansion.expand_data" title="Link to this definition"></a></dt>
+<dd><p>Expands the encoded data from a column of data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – Name of the feature.</p></li>
+<li><p><strong>data</strong> (<em>series</em>) – The column of data.</p></li>
+<li><p><strong>percent</strong> (<em>float</em><em>, </em><em>optional</em>) – The percentile threshold.
+Defaults to 1.0.</p></li>
+<li><p><strong>verbosity</strong> (<em>int</em><em>, </em><em>optional</em>) – The verbosity level.
+Defaults to 0.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The expanded data.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dataframe</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="utils.expansion.expand_dataset">
+<span class="sig-prename descclassname"><span class="pre">utils.expansion.</span></span><span class="sig-name descname"><span class="pre">expand_dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">features</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">percent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbosity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utils.expansion.expand_dataset" title="Link to this definition"></a></dt>
+<dd><p>Expands the encoded data from a dataset.</p>
+<p>Iterates over each column to expand the data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>dataframe</em>) – The dataset.</p></li>
+<li><p><strong>features</strong> (<em>list</em><em>, </em><em>optional</em>) – The list of features to expand.
+Defaults to None.</p></li>
+<li><p><strong>percent</strong> (<em>float</em><em>, </em><em>optional</em>) – The percentile threshold.
+Defaults to 1.0.</p></li>
+<li><p><strong>verbosity</strong> (<em>int</em><em>, </em><em>optional</em>) – The verbosity level.
+Defaults to 0.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The expanded dataset.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dataframe</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="utils.expansion.expand_sort">
+<span class="sig-prename descclassname"><span class="pre">utils.expansion.</span></span><span class="sig-name descname"><span class="pre">expand_sort</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utils.expansion.expand_sort" title="Link to this definition"></a></dt>
+<dd><p>Expands a dataset and sorts a reference dictionary of the features by sparsity.</p>
+<p>Detects and expands valid encoded features and passes the rest.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>dataframe</em>) – The dataset.</p></li>
+<li><p><strong>ref</strong> (<em>dataframe</em>) – The reference dictionary for the database.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The expanded dataset.
+dict: The sorted reference dictionary of features.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dataframe</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="utils.expansion.extract_features">
+<span class="sig-prename descclassname"><span class="pre">utils.expansion.</span></span><span class="sig-name descname"><span class="pre">extract_features</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seq</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">';'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utils.expansion.extract_features" title="Link to this definition"></a></dt>
+<dd><p>Converts a sequence of encoded data into a list of features.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>seq</strong> (<em>str</em>) – The sequence of encoded data.</p></li>
+<li><p><strong>delim</strong> (<em>str</em>) – The delimiter used to separate features.
+Defaults to ‘;’. (The Feature Layer Delimiter)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The list of features.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="utils.expansion.feature_counts">
+<span class="sig-prename descclassname"><span class="pre">utils.expansion.</span></span><span class="sig-name descname"><span class="pre">feature_counts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">children</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">count_none</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utils.expansion.feature_counts" title="Link to this definition"></a></dt>
+<dd><p>Finds the maximum layer number for each row of data and sums along the rows.</p>
+<p>This counts how many times a maximum layer occurs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>children</strong> (<em>dataframe</em>) – The child features.</p></li>
+<li><p><strong>count_none</strong> (<em>bool</em><em>, </em><em>optional</em>) – Counts the 0th layer as a layer.
+Defaults to True.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The counts for each layer.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="utils.expansion.feature_tree">
+<span class="sig-prename descclassname"><span class="pre">utils.expansion.</span></span><span class="sig-name descname"><span class="pre">feature_tree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">percent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utils.expansion.feature_tree" title="Link to this definition"></a></dt>
+<dd><p>Generates a tree of features from a column of encoded data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – The name of the feature.</p></li>
+<li><p><strong>data</strong> (<em>series</em>) – The column of data.</p></li>
+<li><p><strong>parent</strong> (<em>Node</em><em>, </em><em>optional</em>) – The parent node.
+Defaults to None.</p></li>
+<li><p><strong>iter</strong> (<em>int</em><em>, </em><em>optional</em>) – The current iteration.
+Defaults to 0.</p></li>
+<li><p><strong>max_iter</strong> (<em>int</em><em>, </em><em>optional</em>) – The maximum number of iterations.
+Defaults to len(DEPTH_NAMES).</p></li>
+<li><p><strong>is_only</strong> (<em>bool</em><em>, </em><em>optional</em>) – If the current node is an only child.
+Defaults to False.</p></li>
+<li><p><strong>percent</strong> (<em>float</em><em>, </em><em>optional</em>) – The percentile threshold.
+Defaults to 1.0.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The root node of the tree.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Node</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="utils.expansion.filter_children">
+<span class="sig-prename descclassname"><span class="pre">utils.expansion.</span></span><span class="sig-name descname"><span class="pre">filter_children</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">children</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">percent</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utils.expansion.filter_children" title="Link to this definition"></a></dt>
+<dd><p>Filters children within a given percentile.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>children</strong> (<em>dataframe</em>) – The child features.</p></li>
+<li><p><strong>percent</strong> (<em>float</em>) – The percentile threshold.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The filtered child features.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dataframe</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="utils.expansion.generate_children">
+<span class="sig-prename descclassname"><span class="pre">utils.expansion.</span></span><span class="sig-name descname"><span class="pre">generate_children</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delim</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utils.expansion.generate_children" title="Link to this definition"></a></dt>
+<dd><p>Generates the child features for a column of data.</p>
+<p>Each column of the generated dataframe is a child feature.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>series</em>) – The column of data.</p></li>
+<li><p><strong>delim</strong> (<em>str</em>) – The delimiter used to separate features.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The child features.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dataframe</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="utils.expansion.generate_name">
+<span class="sig-prename descclassname"><span class="pre">utils.expansion.</span></span><span class="sig-name descname"><span class="pre">generate_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">leaf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utils.expansion.generate_name" title="Link to this definition"></a></dt>
+<dd><p>Recursively generates a name for a leaf node.</p>
+<dl class="simple">
+<dt>Steps through the nodes to name the feature at the leaf node based on its depth. Examples of names at different depths are:</dt><dd><ul class="simple">
+<li><p>Depth 0: OriginalFeature_Layer_0</p></li>
+<li><p>Depth 1: OriginalFeature_Layer_1_Feature_0</p></li>
+<li><p>Depth 2: OriginalFeature_Layer_1_Feature_2_Deposition_1</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>leaf</strong> (<em>Node</em>) – The leaf node.</p></li>
+<li><p><strong>name</strong> (<em>str</em><em>, </em><em>optional</em>) – The name to set.
+Defaults to None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The name of the leaf node.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="utils.expansion.leaf_matrix">
+<span class="sig-prename descclassname"><span class="pre">utils.expansion.</span></span><span class="sig-name descname"><span class="pre">leaf_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utils.expansion.leaf_matrix" title="Link to this definition"></a></dt>
+<dd><p>Generates a dataframe of the data from the leaf nodes of a tree.</p>
+<p>The columns are labeled with the node names.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>root</strong> (<em>Node</em>) – The root node of the tree.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The dataframe of the data.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dataframe</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="utils.expansion.percent_index">
+<span class="sig-prename descclassname"><span class="pre">utils.expansion.</span></span><span class="sig-name descname"><span class="pre">percent_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">percent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.95</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#utils.expansion.percent_index" title="Link to this definition"></a></dt>
+<dd><p>Finds the index where a given percent of data falls within.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>arr</strong> (<em>array</em>) – The bitarray which describes the sparsity of the data.</p></li>
+<li><p><strong>percent</strong> (<em>float</em><em>, </em><em>optional</em>) – The percentile threshold.
+Defaults to 0.95.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The index where a given percent of data falls within.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="utils.dataset.html" class="btn btn-neutral float-left" title="utils.dataset" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="utils.fileutils.html" class="btn btn-neutral float-right" title="utils.fileutils" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Jiawei Gong Group.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+﻿utils.dataset
+=============
+
+.. automodule:: utils.dataset
+
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      generate_dataset
+      generate_groups
+      generate_reference
+      has_dataset
+      has_reference
+      load_dataset
+      load_reference
+      save_dataset
+      save_reference
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+   
+      DataSet
+   
